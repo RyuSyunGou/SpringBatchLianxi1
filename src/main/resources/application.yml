@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    username: root
+    password: 08061481531LJHslab
+    url: jdbc:mysql://127.0.0.1:3306/springbatch?serverTimezone=GMT%2B8&useSSL=false&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    构建数据库，构建数据表，将batch的内容存进表里（内存版的为存在内存里，关机即销毁）。其相关文件在依赖的jar包中，上方为数据库四要素
+#    写完该语句后记得进pom里刷新，让maven将mysql的依赖导入
+    sql:
+#      initialization-mode: always
+#      schema: classpath:org/springframework/batch/core/schema-mysql.sql
+      init:
+        schema-locations: classpath:org/springframework/batch/core/schema-mysql.sql
+        # 此为执行脚本，启动的时候会在这个地方找脚本，然后执行该创建相应表的脚本
+        mode: never
+        #mode:always
+
+
