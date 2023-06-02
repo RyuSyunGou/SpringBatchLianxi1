@@ -1,4 +1,4 @@
-package com;
+package com.paramjob;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -15,13 +15,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.sql.SQLOutput;
-
 @SpringBootApplication
 //为启动注解，保证为SB的启动类
 @EnableBatchProcessing
 //告诉SB的容器加载Batch的环境，启动SB Batch逻辑
-public class HelloJob {
+public class ParamJob {
     //job调度器→启动job
     @Autowired
     private JobLauncher jobLauncher;
@@ -41,7 +39,7 @@ public class HelloJob {
             @Override
             public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
 
-                System.out.println("hello world,hello spring batch!");
+                System.out.println("param-job!");
                 //根据需求，用batch打印出HELLO等字样,即为Step要实现的逻辑
                 return RepeatStatus.FINISHED;
                 //RepeatStatus.FINISHED;→告知这个打印hello的batch完成了。执行完了
@@ -68,13 +66,13 @@ public class HelloJob {
     //构造完step后，构造以step组成的Job
     @Bean
     public Job job() {
-        return jobBuilderFactory.get("hello-job").start(step1()).build();
+        return jobBuilderFactory.get("param-job").start(step1()).build();
         //构建job，然后该job用start来启动上面已经构造好的step1来构建job
         //然后用return来返回 这个job构造出来的东西
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(HelloJob.class, args);
+        SpringApplication.run(ParamJob.class, args);
         //启动整个HelloJob，来运行其中构建job和构建step的内容
     }
 }

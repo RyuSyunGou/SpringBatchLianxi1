@@ -51,5 +51,5 @@
 <!--            <version>4.3.6</version>-->
 <!--        </dependency>-->
     </dependencies>
-
+<!--注：因SpringBoot版本与MySQL版本以及Batch版本的不兼容，自动写入SQL语句的脚本并未完全生效-->
 </project>
