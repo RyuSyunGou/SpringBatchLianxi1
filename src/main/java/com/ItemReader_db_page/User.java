@@ -1,4 +1,4 @@
-package com.ItemReader_flat_mapper;
+package com.ItemReader_db_page;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +11,5 @@ public class User {
     private Long id;
     private String name;
     private int age;
-    private String address;
-
 
 }

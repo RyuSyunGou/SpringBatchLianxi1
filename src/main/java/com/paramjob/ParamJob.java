@@ -23,15 +23,12 @@ public class ParamJob {
     //job调度器→启动job
     @Autowired
     private JobLauncher jobLauncher;
-
     //job构造器工厂→构建Job对象
     @Autowired
     private JobBuilderFactory jobBuilderFactory;
-
     //step构造器工厂→构建Step的对象
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
-
     //构建一个step对象执行的任务（构建逻辑对象）
     @Bean
     public Tasklet tasklet() {
@@ -43,7 +40,7 @@ public class ParamJob {
                 //根据需求，用batch打印出HELLO等字样,即为Step要实现的逻辑
                 return RepeatStatus.FINISHED;
                 //RepeatStatus.FINISHED;→告知这个打印hello的batch完成了。执行完了
-                //Tasklet{}里面这些动作即为要执行的step步骤的逻辑上
+                //Tasklet{}里面这些动作即为要执行的step步骤的逻辑
             }
         };
     }
