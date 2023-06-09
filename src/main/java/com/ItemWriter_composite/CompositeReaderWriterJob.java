@@ -134,7 +134,7 @@ public class CompositeReaderWriterJob {
     //将输出的三个步骤组装在一起
     public CompositeItemWriter<User>compositeItemWriter(){
         return new CompositeItemWriterBuilder<User>()
-                .delegates(Arrays.asList(flatFileItemWriter(),JsonItemWriter(),itemWriter()))
+                .delegates(Arrays.asList(flatFileItemWriter(),JsonItemWriter(),itemWriter(),consoleItemWriter()))
                 .build();
     }
 
